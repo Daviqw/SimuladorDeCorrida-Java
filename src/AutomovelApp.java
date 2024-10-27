@@ -9,28 +9,30 @@ public class AutomovelApp {
         carro[1] = new Automovel("CAIQ", "CIVIC", "G10");
 
         boolean corridaFinalizada = false;
-
+        
         while (!corridaFinalizada) {
             Automovel.imprimirBarreira();
 
-            for (int c = 0; c < 2; c++) {
-                carro[c].imprimeCarro();
+            for (int i = 0; i < carro.length; i++) {
+                carro[i].imprimeCarro();
             }
 
             Automovel.imprimirBarreira();
 
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < carro.length; i++) {
                 carro[i].imprimeDistancia();
             }
 
             if (carro[0].getDistancia() >= 120 || carro[1].getDistancia() >= 120) {
                 corridaFinalizada = true;
             }
+            // delay para fazer o efeito de movimento
             try {
                 Thread.sleep(250);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            // condições para vitoria ou empate 
         }
         if (carro[0].getDistancia() >= 120 && carro[1].getDistancia() >= 120) {
             System.out.println("EMPATE!");
